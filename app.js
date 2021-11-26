@@ -6,8 +6,17 @@ för diven med id answer-one när man klickar på knappen
 
 let blue = false;
 
+
 function taskOne() {
-  alert("Replace this alert with a solution");
+  const answerOne = document.getElementById("answer-one");
+
+  if(blue === false) {
+    answerOne.style.backgroundColor="blue";
+    blue = true;
+  } else {
+    answerOne.style.backgroundColor="white";
+    blue = false;
+  }
 }
 
 /*
@@ -19,7 +28,12 @@ läggas till i numbers-arrayen, innan arrayen renderas ut i diven med id answer-
 const numbers = [234, 986, 784];
 
 function taskTwo() {
-  alert("Replace this alert with a solution");
+  const answerTwo = document.getElementById("answer-two");
+  answerTwo.innerHTML = "";
+  numbers.push(Math.floor(Math.random() * 1000));
+  numbers.forEach(num => {
+    answerTwo.innerHTML += `<p>${num}</p>`;
+  })
 }
 
 /*
