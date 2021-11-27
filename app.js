@@ -44,7 +44,9 @@ inte är helg ska du trigga en alert med meddelandet "FML"
 */
 
 function taskThree() {
-  alert("Replace this alert with a solution");
+  const date = new Date();
+  let day = date.getDay();
+  (day == 6||0) ? alert("Woohooo it's weekend"): alert("FML");
 }
 
 /*
@@ -56,11 +58,12 @@ eller båda värdena inte är ett nummer ska en alertbox med meddelandet "Jag ka
 */
 
 function multiplier(valueOne, valueTwo) {
-  alert("Replace this alert with a solution");
+
+  (Number.isInteger(valueOne) && Number.isInteger(valueTwo)) ? alert("Produkten är: "+ valueOne * valueTwo) : alert("Jag kan bara multiplicera nummer");
 }
 
 function taskFour() {
-  multiplier();
+  multiplier(13,5);
 }
 
 /*
@@ -80,7 +83,15 @@ const eatable = [];
 const trash = [];
 
 function taskFive() {
-  alert("Replace this alert with a solution");
+
+  const answerFive = document.getElementById("answer-five");
+
+  for(let fruit of fruits) {
+    (fruit.toLowerCase() === "apelsin" ||fruit.toLowerCase() == "päron") ? trash.push(fruit): eatable.push(fruit);
+  }
+  answerFive.innerHTML = `<p>Ätlig: ${eatable.join(", ")}</p>`;  
+  answerFive.innerHTML += `<p>Skräp: ${trash.join(", ")}</p>`;
+  
 }
 
 /*
