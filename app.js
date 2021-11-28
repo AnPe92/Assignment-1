@@ -124,8 +124,20 @@ const notMarried = [];
 const overThirty = [];
 const underThirty = [];
 
+const answerSix = document.querySelector("#answer-six");
+
 function taskSix() {
-  alert("Replace this alert with a solution");
+  
+  for(let i = 0; i < persons.length; i++) {
+    persons[i].married ? married.push(persons[i].name): notMarried.push(persons[i].name);
+    persons[i].age >= 30 ? overThirty.push(persons[i].name): underThirty.push(persons[i].name);
+  }
+
+  console.log("Married" + married[0] + " Not married " + notMarried[0]);
+  answerSix.innerHTML =`<p><b>Över 30:</b> ${overThirty.join(" ,")}</p>`;
+  answerSix.innerHTML +=`<p><b>Under 30:</b> ${underThirty.join(" ,")}</p>`;
+  answerSix.innerHTML +=`<p><b>Gift:</b> ${married.join(" ,")}</p>`;
+  answerSix.innerHTML +=`<p><b>Ogift:</b> ${notMarried.join(" ,")}</p>`;
 }
 
 /*
@@ -138,7 +150,9 @@ const addMeSomeLineBreaks =
   "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?";
 
 function taskSeven() {
-  alert("Replace this alert with a solution");
+  const answerSeven = document.querySelector("#answer-seven");
+  answerSeven.innerHTML = addMeSomeLineBreaks.replace(/,/g, ",<br>");
+  //kan även använda replaceAll(",", ",<br>");
 }
 
 /*
@@ -148,7 +162,11 @@ efter att tre sekunder har gått ska diven visas som vanligt igen
 */
 
 function taskEight() {
-  alert("Replace this alert with a solution");
+  const answerEight = document.getElementById("card-eight");
+  answerEight.style.visibility = "hidden";
+  setTimeout(()=> {
+    answerEight.style.visibility = "visible";
+  }, 3000);
 }
 
 /*
