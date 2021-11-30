@@ -10,11 +10,11 @@ let blue = false;
 function taskOne() {
   const answerOne = document.getElementById("answer-one");
 
-  if(blue === false) {
-    answerOne.style.backgroundColor="blue";
+  if (blue === false) {
+    answerOne.style.backgroundColor = "blue";
     blue = true;
   } else {
-    answerOne.style.backgroundColor="white";
+    answerOne.style.backgroundColor = "white";
     blue = false;
   }
 }
@@ -46,7 +46,7 @@ inte är helg ska du trigga en alert med meddelandet "FML"
 function taskThree() {
   const date = new Date();
   let day = date.getDay();
-  (day == 6||0) ? alert("Woohooo it's weekend"): alert("FML");
+  (day == 6 || 0) ? alert("Woohooo it's weekend") : alert("FML");
 }
 
 /*
@@ -59,11 +59,11 @@ eller båda värdena inte är ett nummer ska en alertbox med meddelandet "Jag ka
 
 function multiplier(valueOne, valueTwo) {
 
-  (Number.isInteger(valueOne) && Number.isInteger(valueTwo)) ? alert("Produkten är: "+ valueOne * valueTwo) : alert("Jag kan bara multiplicera nummer");
+  (Number.isInteger(valueOne) && Number.isInteger(valueTwo)) ? alert("Produkten är: " + valueOne * valueTwo) : alert("Jag kan bara multiplicera nummer");
 }
 
 function taskFour() {
-  multiplier(13,5);
+  multiplier(13, 5);
 }
 
 /*
@@ -86,12 +86,12 @@ function taskFive() {
 
   const answerFive = document.getElementById("answer-five");
 
-  for(let fruit of fruits) {
-    (fruit.toLowerCase() === "apelsin" ||fruit.toLowerCase() == "päron") ? trash.push(fruit): eatable.push(fruit);
+  for (let fruit of fruits) {
+    (fruit.toLowerCase() === "apelsin" || fruit.toLowerCase() == "päron") ? trash.push(fruit) : eatable.push(fruit);
   }
-  answerFive.innerHTML = `<p>Ätlig: ${eatable.join(", ")}</p>`;  
+  answerFive.innerHTML = `<p>Ätlig: ${eatable.join(", ")}</p>`;
   answerFive.innerHTML += `<p>Skräp: ${trash.join(", ")}</p>`;
-  
+
 }
 
 /*
@@ -127,17 +127,17 @@ const underThirty = [];
 const answerSix = document.querySelector("#answer-six");
 
 function taskSix() {
-  
-  for(let i = 0; i < persons.length; i++) {
-    persons[i].married ? married.push(persons[i].name): notMarried.push(persons[i].name);
-    persons[i].age >= 30 ? overThirty.push(persons[i].name): underThirty.push(persons[i].name);
+
+  for (let i = 0; i < persons.length; i++) {
+    persons[i].married ? married.push(persons[i].name) : notMarried.push(persons[i].name);
+    persons[i].age >= 30 ? overThirty.push(persons[i].name) : underThirty.push(persons[i].name);
   }
 
   console.log("Married" + married[0] + " Not married " + notMarried[0]);
-  answerSix.innerHTML =`<p><b>Över 30:</b> ${overThirty.join(" ,")}</p>`;
-  answerSix.innerHTML +=`<p><b>Under 30:</b> ${underThirty.join(" ,")}</p>`;
-  answerSix.innerHTML +=`<p><b>Gift:</b> ${married.join(" ,")}</p>`;
-  answerSix.innerHTML +=`<p><b>Ogift:</b> ${notMarried.join(" ,")}</p>`;
+  answerSix.innerHTML = `<p><b>Över 30:</b> ${overThirty.join(" ,")}</p>`;
+  answerSix.innerHTML += `<p><b>Under 30:</b> ${underThirty.join(" ,")}</p>`;
+  answerSix.innerHTML += `<p><b>Gift:</b> ${married.join(" ,")}</p>`;
+  answerSix.innerHTML += `<p><b>Ogift:</b> ${notMarried.join(" ,")}</p>`;
 }
 
 /*
@@ -164,7 +164,7 @@ efter att tre sekunder har gått ska diven visas som vanligt igen
 function taskEight() {
   const answerEight = document.getElementById("card-eight");
   answerEight.style.visibility = "hidden";
-  setTimeout(()=> {
+  setTimeout(() => {
     answerEight.style.visibility = "visible";
   }, 3000);
 }
@@ -176,8 +176,13 @@ answer-container till blå, annars ska den ändras till röd
 */
 
 function taskNine() {
-  alert("Replace this alert with a solution");
-}
+  const allContainers = document.getElementsByClassName("answer-container");
+  let date = new Date();
+  console.log(date.getHours())
+  for (let i = 0; i < allContainers.length; i++) {
+    (date.getHours() >= 17) ? allContainers[i].style.backgroundColor="blue" : allContainers[i].style.backgroundColor = "red";
+  };
+};
 
 /*
 Uppgift 10: 
@@ -193,11 +198,32 @@ om någon av dessa conditions inte uppfylls ska du visa en alertbox med texten "
 */
 
 function calculator(valueOne, valueTwo, operator) {
-  alert("Replace this alert with a solution");
+  console.log(Number.isInteger(valueOne));
+  if (Number.isInteger(valueOne) && Number.isInteger(valueTwo)) {
+    switch (operator.toLowerCase()) {
+      case "add":
+        alert(valueOne + valueTwo);
+        break;
+      case "subtract":
+        alert(valueOne - valueTwo);
+        break;
+      case "multiply":
+        alert(valueOne * valueTwo);
+        break;
+      case "divide":
+        alert(valueOne / valueTwo);
+        break;
+      default:
+        alert("Något är fel");
+        break;
+    }
+  } else {
+    alert("Något är fel")
+  }
 }
 
 function taskTen() {
   //första och andra argumentet ska vara nummer, tredje argumentet ska
   //vara en sträng med något av värdena "add", "subtract", "multiply", "divide"
-  calculator();
+  calculator(88, 66, "divide");
 }
