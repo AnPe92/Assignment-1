@@ -6,7 +6,6 @@ för diven med id answer-one när man klickar på knappen
 
 let blue = false;
 
-
 function taskOne() {
   const answerOne = document.getElementById("answer-one");
 
@@ -91,7 +90,6 @@ function taskFive() {
   }
   answerFive.innerHTML = `<p>Ätlig: ${eatable.join(", ")}</p>`;
   answerFive.innerHTML += `<p>Skräp: ${trash.join(", ")}</p>`;
-
 }
 
 /*
